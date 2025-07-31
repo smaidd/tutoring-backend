@@ -1,0 +1,53 @@
+logging:
+  level:
+    org:
+      hibernate:
+        query: INFO
+        type:
+          descriptor:
+            sql:
+              BasicBinder: INFO
+        SQL: INFO
+        engine:
+          jdbc:
+            spi:
+              SqlExceptionHelper: ERROR
+      springframework:
+        boot: ERROR
+        nodeValue: ERROR
+        web: ERROR
+    root: INFO
+security:
+  jwt:
+    secret-key: 615011a49d4194b946ec51a17630fe8680e0acb7fd8cb51cbdfe8f45eceacd1b
+    expiration-time: '3600000'
+spring:
+  mail:
+    username: trackertutor@gmail.com
+    port: '587'
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp.gmail.com
+    password: vidiujqelqvmtmlv
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: 'true'
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    show-sql: 'true'
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: ${PROD_DB_PASSWORD}
+    username: ${PROD_DB_USERNAME}
+    url: jdbc:postgresql://${PROD_DB_HOST}:${PROD_DB_PORT}/${PROD_DB_NAME}
+  application:
+    name: meditation
+server:
+  port: '8999'
